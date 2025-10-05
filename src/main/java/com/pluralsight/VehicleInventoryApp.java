@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class VehicleInventoryApp {
@@ -10,10 +12,11 @@ public class VehicleInventoryApp {
     // create scanner for input
     public static Scanner input = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    // Declare a counter for current number of vehicles in the array
+    public static int vehicleCount;
 
-        // create a counter for current number of vehicles in the array
-        int vehicleCount;
+
+    public static void main(String[] args) {
 
         // preload 6 vehicles
         vehicleArray[0] = new Vehicle(101121, "Ford Explorer", "Red", 45000, 13500);
@@ -36,15 +39,26 @@ public class VehicleInventoryApp {
 
             int command = input.nextInt();
 
+            // run the methods based on command input
             switch(command) {
                 case 1:
                     listAllVehicles();
                     break;
                 case 2:
-                    //findVehiclesByPrice();
+                    // clear buffer
+                    input.nextLine();
+                    findVehiclesByModel();
+                    break;
+                case 3:
+                    findVehiclesByPrice();
+                    break;
+                case 4:
+                    //clear buffer
+                    input.nextLine();
+                    findVehiclesByColor();
                     break;
                 case 5:
-                    //addAVehicle();
+                    addAVehicle();
                     break;
                 case 6:
                     return;
@@ -69,12 +83,12 @@ public class VehicleInventoryApp {
 
     public static void listAllVehicles()  {
 
-        //int counter = countVehicles();
         System.out.println("vehicleId,makeModel,color,odometerReading,price");
 
+        // loop through each Vehicle and check if its null, if not display it
         for (int i = 0; i < vehicleArray.length; i++) {
             if (vehicleArray[i] != null){
-                System.out.println("Vehicle " + (i + 1) + ": ");
+                //System.out.println("Vehicle " + (i + 1) + ": ");
                 System.out.printf("%d,%s,%s,%d,%.2f\n",
                         vehicleArray[i].getVehicleId(),
                         vehicleArray[i].getMakeModel(),
@@ -83,6 +97,105 @@ public class VehicleInventoryApp {
                         vehicleArray[i].getPrice());
             }
         }
+
+    }
+
+    public static void findVehiclesByModel () {
+
+        // get the make/model to search for
+        System.out.println("Enter the model/make to search");
+        String makeModel = input.nextLine();
+
+        // loop through each Vehicle and check if its null, if not, check if the model matches and display
+        for (int i = 0; i < vehicleArray.length; i++) {
+            if (vehicleArray[i] != null) {
+                if (vehicleArray[i].getMakeModel().equalsIgnoreCase(makeModel)){
+                    System.out.printf("%d,%s,%s,%d,%.2f\n",
+                            vehicleArray[i].getVehicleId(),
+                            vehicleArray[i].getMakeModel(),
+                            vehicleArray[i].getColor(),
+                            vehicleArray[i].getOdometerReading(),
+                            vehicleArray[i].getPrice());
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public static void findVehiclesByPrice() {
+
+        // Get the min and max price range
+        System.out.print("Enter the min price: ");
+        double minPrice = input.nextDouble();
+
+        System.out.print("Enter the max price: ");
+        double maxPrice = input.nextDouble();
+
+        System.out.println("\nVehicles in price range\n");
+
+        // loop through each Vehicle and check if its null, if not, check if the price is in range and display
+        for (int i = 0; i < vehicleArray.length; i++) {
+
+            if (vehicleArray[i] != null) {
+
+                if (vehicleArray[i].getPrice() <= maxPrice && vehicleArray[i].getPrice() >= minPrice) {
+                    System.out.printf("%d,%s,%s,%d,%.2f\n",
+                            vehicleArray[i].getVehicleId(),
+                            vehicleArray[i].getMakeModel(),
+                            vehicleArray[i].getColor(),
+                            vehicleArray[i].getOdometerReading(),
+                            vehicleArray[i].getPrice());
+                }
+
+            }
+
+        }
+
+    }
+
+    public static void findVehiclesByColor() {
+
+        // get the color to search for
+        System.out.println("Enter the color to search");
+        String color = input.nextLine();
+
+        // loop through each Vehicle and check if its null, if not, check if the color matches and display
+        for (int i = 0; i < vehicleArray.length; i++) {
+            if (vehicleArray[i] != null) {
+                if (vehicleArray[i].getColor().equalsIgnoreCase(color)){
+                    System.out.printf("%d,%s,%s,%d,%.2f\n",
+                            vehicleArray[i].getVehicleId(),
+                            vehicleArray[i].getMakeModel(),
+                            vehicleArray[i].getColor(),
+                            vehicleArray[i].getOdometerReading(),
+                            vehicleArray[i].getPrice());
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public static void addAVehicle() {
+
+        // get the current vehicle count
+        vehicleCount = countVehicles();
+
+        // create variables to store vehicle data
+        System.out.println("Enter the vehicle id");
+        long vehicleId = input.nextLong();
+
+        // clear buffer
+        input.nextLine();
+
+        System.out.println("Enter the vehicle make/model");
+        String makeModel = input.nextLin();
+
 
     }
 
