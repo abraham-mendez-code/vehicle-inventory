@@ -186,16 +186,31 @@ public class VehicleInventoryApp {
         // get the current vehicle count
         vehicleCount = countVehicles();
 
-        // create variables to store vehicle data
-        System.out.println("Enter the vehicle id");
-        long vehicleId = input.nextLong();
+        if (vehicleCount < 20) {
 
-        // clear buffer
-        input.nextLine();
+            // create variables to store vehicle data
+            System.out.println("Enter the vehicle id");
+            long vehicleId = input.nextLong();
 
-        System.out.println("Enter the vehicle make/model");
-        String makeModel = input.nextLin();
+            // clear buffer
+            input.nextLine();
 
+            System.out.println("Enter the vehicle make/model");
+            String makeModel = input.nextLine();
+
+            System.out.println("Enter the vehicle color");
+            String color = input.nextLine();
+
+            System.out.println("Enter the vehicle odometer reading");
+            long odometerReading = input.nextLong();
+
+            System.out.println("Enter the vehicle price");
+            double price = input.nextDouble();
+
+            // create a new Vehicle object in array with the input data members
+            vehicleArray[vehicleCount] = new Vehicle(vehicleId, makeModel, color, odometerReading, price);
+
+        }
 
     }
 

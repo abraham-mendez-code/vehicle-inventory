@@ -6,7 +6,7 @@ public class Vehicle {
     private long vehicleId;
     private String makeModel;
     private String color;
-    private int odometerReading;
+    private long odometerReading;
     private double price;
 
     /*
@@ -45,7 +45,7 @@ public class Vehicle {
             Enter your command
      */
 
-    public Vehicle(long vehicleId, String makeModel, String color, int odometerReading, double price) {
+    public Vehicle(long vehicleId, String makeModel, String color, long odometerReading, double price) {
 
         this.vehicleId = vehicleId;
         this.makeModel = makeModel;
@@ -68,7 +68,7 @@ public class Vehicle {
         return color;
     }
 
-    public int getOdometerReading() {
+    public long getOdometerReading() {
         return odometerReading;
     }
 
