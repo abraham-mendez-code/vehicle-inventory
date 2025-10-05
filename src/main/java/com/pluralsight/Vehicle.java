@@ -1,6 +1,8 @@
+package com.pluralsight;
+
 public class Vehicle {
 
-    // Declare class variables; what makes this a Vehicle object
+    // Declare class variables; what makes this a com.pluralsight.Vehicle object
     private static long vehicleId;
     private static String makeModel;
     private static String color;
@@ -13,7 +15,7 @@ public class Vehicle {
         manage the inventory for a used car dealership. Users will use a menu to lookup
         vehicles or add vehicles to the list.
 
-        Create a class named Vehicle. Add the following data members to it:
+        Create a class named com.pluralsight.Vehicle. Add the following data members to it:
             vehicleId - a long (ex: 101121)
             makeModel - a string (ex: Ford Explorer)
             color - a string (ex: Red)
@@ -53,7 +55,7 @@ public class Vehicle {
 
     }
 
-    // getter methods, returns the data members of the Vehicle object it is used on
+    // getter methods, returns the data members of the com.pluralsight.Vehicle object it is used on
     public static long getVehicleId() {
         return vehicleId;
     }
