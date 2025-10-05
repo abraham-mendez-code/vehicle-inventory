@@ -3,11 +3,11 @@ package com.pluralsight;
 public class Vehicle {
 
     // Declare class variables; what makes this a com.pluralsight.Vehicle object
-    private static long vehicleId;
-    private static String makeModel;
-    private static String color;
-    private static int odometerReading;
-    private static double price;
+    private long vehicleId;
+    private String makeModel;
+    private String color;
+    private int odometerReading;
+    private double price;
 
     /*
         Step 1
@@ -45,55 +45,55 @@ public class Vehicle {
             Enter your command
      */
 
-    public Vehicle() {
+    public Vehicle(long vehicleId, String makeModel, String color, int odometerReading, double price) {
 
-        this.vehicleId = 000000;
-        this.makeModel = "N/a";
-        this.color = "Nan";
-        this.odometerReading = 00000;
-        this.price = 99999.99;
+        this.vehicleId = vehicleId;
+        this.makeModel = makeModel;
+        this.color = color;
+        this.odometerReading = odometerReading;
+        this.price = price;
 
     }
 
     // getter methods, returns the data members of the com.pluralsight.Vehicle object it is used on
-    public static long getVehicleId() {
+    public long getVehicleId() {
         return vehicleId;
     }
 
-    public static String getMakeModel() {
+    public String getMakeModel() {
         return makeModel;
     }
 
-    public static String getColor() {
+    public String getColor() {
         return color;
     }
 
-    public static int getOdometerReading() {
+    public int getOdometerReading() {
         return odometerReading;
     }
 
-    public static double getPrice() {
+    public double getPrice() {
         return price;
     }
 
     // setter methods, accepts a vehicle object and updates the data members
-    public static void setVehicleId(long vehicleId) {
-        Vehicle.vehicleId = vehicleId;
+    public void setVehicleId(long vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
-    public static void setMakeModel(String makeModel) {
-        Vehicle.makeModel = makeModel;
+    public void setMakeModel(String makeModel) {
+        this.makeModel = makeModel;
     }
 
-    public static void setColor(String color) {
-        Vehicle.color = color;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public static void setOdometerReading(int odometerReading) {
-        Vehicle.odometerReading = odometerReading;
+    public void setOdometerReading(int odometerReading) {
+        this.odometerReading = odometerReading;
     }
 
-    public static void setPrice(double price) {
-        Vehicle.price = price;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
