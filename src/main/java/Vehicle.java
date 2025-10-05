@@ -53,6 +53,7 @@ public class Vehicle {
 
     }
 
+    // getter methods, returns the data members of the Vehicle object it is used on
     public static long getVehicleId() {
         return vehicleId;
     }
@@ -73,6 +74,24 @@ public class Vehicle {
         return price;
     }
 
+    // setter methods, accepts a vehicle object and updates the data members
+    public static void setVehicleId(long vehicleId) {
+        Vehicle.vehicleId = vehicleId;
+    }
 
+    public static void setMakeModel(String makeModel) {
+        Vehicle.makeModel = makeModel;
+    }
 
+    public static void setColor(String color) {
+        Vehicle.color = color;
+    }
+
+    public static void setOdometerReading(int odometerReading) {
+        Vehicle.odometerReading = odometerReading;
+    }
+
+    public static void setPrice(double price) {
+        Vehicle.price = price;
+    }
 }
